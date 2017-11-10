@@ -1,34 +1,7 @@
-# Connect sql server and Excel by Python
-1.关于实现通过python访问sql server中的数据并将数据存储在excel表中代码。
-import pypyodbc
-import xlwt
+一个人的成长啊离不开学习，古话不说么，吃一堑方才长一智；又有人云使人成长的是经历不是岁月；老话还说活到老学到老，越活越年轻！想想啊，不是没有道理滴。
 
+来上海一年多了，经历的事儿多了，看见的牛人多了，思考的思路多了，看待各色人事的角度自然也就广多了。人呐，一定要找好自己的定位，建立自己的不可替代性，眼光放长远些，风物长宜放眼量。总之啊，就得多学习，持续学习，持续不断的学习。
 
-class Connect:
-    pass
+点滴学涯，聚沙成塔。莫做三天打鱼两天晒网之愚夫，应当素履以往持之以恒之狗雄！嘿嘿。加油，狗子！
 
-
-def save_sql_data(driver, server, database, pid, uid):
-    # frist connect sql
-    con = pypyodbc.connect(DRIVER=driver, SERVER=server, DATABASE=database, UID=pid, PWD=uid)
-    cur = con.cursor()
-    sql = '''select * from customers_test'''
-    cur.execute(sql)
-    list1 = cur.fetchall()
-    cur.close()
-    con.close()
-    # second connect excel
-    workbook = xlwt.Workbook()
-    booksheet = workbook.add_sheet('savadata_sheet')
-    params = ['CustomerNo', 'CustomerName', 'Address1', 'Address2', 'City', 'State', 'Zip', 'Contact', 'Phone', 'FedIDNo', 'DateInSystem']
-    for index in range(len(params)):
-        booksheet.write(0, index, params[index])
-
-    for i in range(len(list1)):
-        hang = list1[i]
-        for j in range(len(hang)):
-            booksheet.write(i+1, j, hang[j])
-    workbook.save('practice.xls')
-
-if __name__ == '__main__':
-    save_sql_data('{SQL SERVER}', 'localhost', 'jdksql', 'sa', '123456')
+谨记，己勉。
